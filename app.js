@@ -12,8 +12,8 @@
  */
 
 var Stress = require('./');
+var addresses = require('./addresses.json');
 
-var StressServer = new Stress();
-
-StressServer.run('http://192.168.3.44/',10);
-
+addresses.forEach(addr => {
+  (new Stress()).run(addr, 100);
+});
